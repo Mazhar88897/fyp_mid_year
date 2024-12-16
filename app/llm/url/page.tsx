@@ -73,7 +73,7 @@ import router from "next/router";
                 </Button>
               </div>
               <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="framework">Frameworks For Emaddings</Label>
+                <Label htmlFor="framework">Frameworks For Embaddings</Label>
                 <Select>
                   <SelectTrigger id="framework">
                     <SelectValue placeholder="Select" />
@@ -88,7 +88,7 @@ import router from "next/router";
               </div>
             </div>
           </form>
-          <div className="mt-4">
+          <div className="mt-2 h-32 overflow-y-auto">
             <Label>Added Tests</Label>
             {tests.length === 0 ? (
               <p className="text-gray-500">No tests added yet.</p>

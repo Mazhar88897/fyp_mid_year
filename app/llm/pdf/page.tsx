@@ -49,7 +49,7 @@ const FileUploadCard: React.FC = () => {
 
   return (
 
-    <div className="flex flex-col items-center  min-h-screen p-6">
+    <div className="flex flex-col items-center    min-h-screen p-6">
       {/* Card Container */}
       <div className="w-full max-w-xl p-6 bg-white shadow-lg rounded-lg">
         {/* Card Header */}
@@ -65,7 +65,7 @@ const FileUploadCard: React.FC = () => {
 
         {/* Drag-and-Drop Area */}
        <div><div
-  className="mt-6 flex items-center justify-center w-full h-48 border-2 border-dashed border-gray-300 rounded-lg bg-gray-100 hover:bg-gray-200 transition cursor-pointer"
+  className="mt-6 flex items-center justify-center w-full  h-48 border-2 border-dashed border-gray-300 rounded-lg bg-gray-100 hover:bg-gray-200 transition cursor-pointer"
   onDrop={(e) => {
     e.preventDefault();
     e.stopPropagation(); // Stops propagation beyond this element
@@ -91,10 +91,15 @@ const FileUploadCard: React.FC = () => {
   </label>
 </div>
 </div>
-
-
-        {/* Uploaded Files */}
-        {uploadedFiles.length > 0 && (
+<div>
+<button
+         
+          className="mt-4 w-full px-4 py-2 bg-black text-white rounded-md shadow"
+        >
+          Add
+        </button>
+</div>
+<div className="h-32 overflow-y-scroll " >{uploadedFiles.length > 0 && (
           <div className="mt-6">
             <h3 className="text-lg font-medium text-gray-700">
               Uploaded Files
@@ -117,18 +122,13 @@ const FileUploadCard: React.FC = () => {
             </ul>
           </div>
         )}
-
+</div>
+        {/* Uploaded Files */}
+        
         {/* Next Button */}
         
       </div>
-      <div className="fixed bottom-4 right-4">
-          <button
-            onClick={() => console.log('files array:',uploadedFiles)}
-            className="px-6 py-3 bg-black text-white rounded-lg shadow "
-          >
-            Next
-          </button>
-        </div>
+     
       
     </div>
   );

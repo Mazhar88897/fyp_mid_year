@@ -20,7 +20,7 @@ interface DbConfig {
   db_name: string;
 }
 
-function DatabaseConfigCard() {
+export default function DatabaseConfigCard() {
   const [dbConfig, setDbConfig] = useState<DbConfig>({
     db_user: "",
     db_password: "",
@@ -48,7 +48,14 @@ function DatabaseConfigCard() {
   };
 
   return (
-    <div className="flex flex-col items-center  min-h-screen p-6">
+    <div className="p-4 mb-4">
+         <h1 className="text-2xl font-bold">Dashboard</h1>
+        <p className="text-gray-500 dark:text-gray-400">
+          Welcome to your dashboard. Here you can manage your products, customers,
+          and analytics.
+       </p>
+    <div className="flex pt-4 flex-col items-center  min-h-screen ">
+       
     <Card className="w-[400px]">
       <CardHeader>
         <CardTitle>Database Configuration</CardTitle>
@@ -118,30 +125,27 @@ function DatabaseConfigCard() {
         <Button onClick={handleSubmit}>Save</Button>
       </CardFooter>
     </Card></div>
+    </div>
   );
 }
 
-function page() {
-    return (
-      <main className="p-4 lg:p-8">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
-        <p className="text-gray-500 dark:text-gray-400">
-          Welcome to your dashboard. Here you can manage your products, customers,
-          and analytics.
-        </p>
-        <div className="mt-8">
-         <DatabaseConfigCard />
-        </div>
-        <div className="fixed bottom-4 right-4">
-          <button
-            // onClick={() => router.push("/llm")}
-            className="px-6 py-3 bg-black text-white rounded-lg shadow"
-          >
-            Next
-          </button>
-        </div>
-      </main>
-    );
-  }
+// function page() {
+//     return (
+//       <main className="p-4 lg:p-8">
+//         
+//         <div className="mt-8">
+//          <DatabaseConfigCard />
+//         </div>
+//         <div className="fixed bottom-4 right-4">
+//           <button
+//             // onClick={() => router.push("/llm")}
+//             className="px-6 py-3 bg-black text-white rounded-lg shadow"
+//           >
+//             Next
+//           </button>
+//         </div>
+//       </main>
+//     );
+//   }
   
-  export default page;
+//   export default page;

@@ -51,11 +51,11 @@ const  NewPage: React.FC = () => {
         >
           Add
         </button>
-        
+        <h3 className="text-lg font-semibold  mt-6 text-gray-700">Added Paragraphs:</h3>
 
         {/* Display Truncated Paragraphs */}
-        <div className="mt-6">
-          <h3 className="text-lg font-semibold text-gray-700">Added Paragraphs:</h3>
+        <div className="h-48 overflow-y-auto">
+          
           {paragraphs ?  ( 
           <ul className="mt-2 space-y-2">
             {paragraphs.map((paragraph, index) => (
