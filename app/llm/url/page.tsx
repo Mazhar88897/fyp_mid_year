@@ -43,13 +43,52 @@ import router from "next/router";
   const clearAllTests = () => {
     setTests([]);
   };
+  type ApiResponse = {
+    success: boolean;
+    message: string;
+  };
 
   // Function to truncate text
   const truncateText = (text: string) => {
     const words = text.split(" ");
     return words.length > 3 ? `${words.slice(0, 3).join(" ")}...` : text;
   };
+  const handlePostData = async (): Promise<void> => {
+    const url = 'http://127.0.0.1:5000/process_urls'; // Replace with your actual endpoint
 
+    const data = { "urls": tests }; // Define the data variable
+
+    try {
+      // Make the POST request
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      // Check if the response is okay
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // Parse the JSON response
+      const result: ApiResponse = await response.json();
+      console.log('Response from server:', result);
+
+      // Handle success case
+      if (result.success) {
+        console.log('Data posted successfully!');
+        clearAllTests();
+      } else {
+        console.log(`Server error: ${result.message}`);
+      }
+    } catch (error) {
+      console.error('Error posting data:', error);
+      console.log('Failed to post data. Please try again.');
+    }
+  };
   return (
     <div className="flex flex-col items-center flex-1 p-6">
       <Card className="w-[350px]">
@@ -115,7 +154,9 @@ import router from "next/router";
           <Button variant="outline" onClick={clearAllTests}>
             Clear All
           </Button>
-          <Button onClick={()=>{console.log(tests)}}>Create Chatbot</Button>
+          <Button onClick={()=>{handlePostData();
+
+          }}>Create Chatbot</Button>
         </CardFooter>
       </Card>
     </div>

@@ -36,7 +36,7 @@ export default function DatabaseConfigCard() {
 
   // Event handler for form submission
   const handleSubmit = () => {
-    alert('Successfully Saved!')
+    // alert('Successfully Saved!')
     console.log("Database Configuration:", dbConfig);
     // Add logic to store or use the dbConfig object as needed
     setDbConfig({
@@ -46,6 +46,47 @@ export default function DatabaseConfigCard() {
         db_name: "",
       })
   };
+  interface ApiResponse {
+    success: boolean;
+    message: string;
+  }
+  const handlePostData = async (): Promise<void> => {
+    const url = 'http://127.0.0.1:5000/process_database'; // Replace with your actual endpoint
+
+    // const data = {dbConfig}; // Define the data variable
+
+    try {
+      // Make the POST request
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dbConfig),
+      });
+
+      // Check if the response is okay
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      // Parse the JSON response
+      const result: ApiResponse = await response.json();
+      console.log('Response from server:', result);
+
+      // Handle success case
+      if (result.success) {
+        console.log('Data posted successfully!');
+        handleSubmit();
+      } else {
+        console.log(`Server error: ${result.message}`);
+      }
+    } catch (error) {
+      console.error('Error posting data:', error);
+      console.log('Failed to post data. Please try again.');
+    }
+  };
+
 
   return (
     <div className="p-8 mb-4">
@@ -121,7 +162,10 @@ export default function DatabaseConfigCard() {
         >
           Clear Credential
         </Button>
-        <Button onClick={handleSubmit}>Create Chatbot</Button>
+        <Button onClick={()=>{
+                              handlePostData();
+                              
+        }}>Create Chatbot</Button>
       </CardFooter>
     </Card></div>
     </div>

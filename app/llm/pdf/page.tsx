@@ -46,6 +46,42 @@ const FileUploadCard: React.FC = () => {
   const removeFile = (index: number) => {
     setUploadedFiles((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
+  const handlePostData = async (): Promise<void> => {
+    const url = 'http://127.0.0.1:5000/process_docs'; // Replace with your actual endpoint
+    const data = new FormData();
+
+    // Append all uploaded files under the 'files' key
+    uploadedFiles.forEach((file) => {
+        data.append('files', file);
+    });
+
+    try {
+        // Make the POST request
+        const response = await fetch(url, {
+            method: 'POST',
+            body: data,
+        });
+
+        // Check if the response is okay
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Parse the JSON response
+        const result = await response.json();
+        console.log('Response from server:', result);
+
+        // Handle success case
+        if (result.message) {
+            console.log(result.message);
+        } else {
+            console.log('Unexpected server response:', result);
+        }
+    } catch (error) {
+        console.error('Error posting data:', error);
+        console.log('Failed to post data. Please try again.');
+    }
+};
 
   return (
 
@@ -93,7 +129,7 @@ const FileUploadCard: React.FC = () => {
 </div>
 <div>
 <button
-         
+         onClick={handlePostData}
           className="mt-4 w-full px-4 py-2 bg-black text-white rounded-md shadow"
         >
           Create Chatbot
