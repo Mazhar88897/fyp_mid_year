@@ -48,11 +48,10 @@ export default function DatabaseConfigCard() {
   };
 
   return (
-    <div className="p-4 mb-4">
-         <h1 className="text-2xl font-bold">Dashboard</h1>
+    <div className="p-8 mb-4">
+         <h1 className="text-2xl font-bold">Database Dashboard</h1>
         <p className="text-gray-500 dark:text-gray-400">
-          Welcome to your dashboard. Here you can manage your products, customers,
-          and analytics.
+          Welcome to your dashboard. Here you can manage your databeases.
        </p>
     <div className="flex pt-4 flex-col items-center  min-h-screen ">
        
@@ -120,9 +119,9 @@ export default function DatabaseConfigCard() {
             })
           }
         >
-          Clear
+          Clear Credential
         </Button>
-        <Button onClick={handleSubmit}>Save</Button>
+        <Button onClick={handleSubmit}>Create Chatbot</Button>
       </CardFooter>
     </Card></div>
     </div>

@@ -49,7 +49,7 @@ const  NewPage: React.FC = () => {
           onClick={handleAddParagraph}
           className="mt-4 w-full px-4 py-2 bg-black text-white rounded-md shadow"
         >
-          Add
+          Create Chatbot
         </button>
         <h3 className="text-lg font-semibold  mt-6 text-gray-700">Added Paragraphs:</h3>
 
@@ -69,14 +69,7 @@ const  NewPage: React.FC = () => {
           </ul> ) : (<p>No Text Added Now</p>)}
         </div>
       </div>
-      <div className="fixed bottom-4 right-4">
-        <button
-          onClick={() => router.push("/url")}
-          className="px-6 py-3 bg-black text-white rounded-lg shadow"
-        >
-          Next
-        </button>
-      </div>
+      
     </div>
   );
 };
@@ -84,10 +77,9 @@ const  NewPage: React.FC = () => {
 function page() {
     return (
       <main className="p-4 lg:p-8">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
+        <h1 className="text-2xl font-bold"> Metadata Dashboard</h1>
         <p className="text-gray-500 dark:text-gray-400">
-          Welcome to your dashboard. Here you can manage your products, customers,
-          and analytics.
+          Welcome to your dashboard. Here you can manage your metadata.
         </p>
         <div className="mt-8">
             <NewPage />

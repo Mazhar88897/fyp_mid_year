@@ -96,7 +96,7 @@ const FileUploadCard: React.FC = () => {
          
           className="mt-4 w-full px-4 py-2 bg-black text-white rounded-md shadow"
         >
-          Add
+          Create Chatbot
         </button>
 </div>
 <div className="h-32 overflow-y-scroll " >{uploadedFiles.length > 0 && (
@@ -138,10 +138,9 @@ const FileUploadCard: React.FC = () => {
  function page() {
     return (
       <main className="p-4 lg:p-8">
-        <h1 className="text-2xl font-bold">Dashboard</h1>
+        <h1 className="text-2xl font-bold">Document Dashboard</h1>
         <p className="text-gray-500 dark:text-gray-400">
-          Welcome to your dashboard. Here you can manage your products, customers,
-          and analytics.
+          Welcome to your dashboard. Here you can manage your documents.
         </p>
         <div className="mt-8">
           <FileUploadCard />

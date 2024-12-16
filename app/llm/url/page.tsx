@@ -54,8 +54,8 @@ import router from "next/router";
     <div className="flex flex-col items-center flex-1 p-6">
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>Create Project</CardTitle>
-          <CardDescription>Deploy your new project in one-click.</CardDescription>
+          <CardTitle>Create Chatbot Project</CardTitle>
+          <CardDescription>Create your new project in one-click.</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={(e) => e.preventDefault()}>
@@ -63,35 +63,35 @@ import router from "next/router";
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">Name</Label>
                 <Input
-                  id="name"
-                  placeholder="Name of your project"
+                  id="Url"
+                  placeholder="place url of your project"
                   value={testName}
                   onChange={(e) => setTestName(e.target.value)}
                 />
                 <Button type="button" onClick={addTest} className="mt-2">
-                  Add Test
+                  Add Url
                 </Button>
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="framework">Frameworks For Embaddings</Label>
                 <Select>
                   <SelectTrigger id="framework">
-                    <SelectValue placeholder="Select" />
+                    <SelectValue placeholder="default" />
                   </SelectTrigger>
                   <SelectContent position="popper">
-                    <SelectItem value="next">Single page</SelectItem>
-                    <SelectItem value="sveltekit">SvelteKit</SelectItem>
-                    <SelectItem value="astro">Astro</SelectItem>
-                    <SelectItem value="nuxt">Nuxt.js</SelectItem>
+                    <SelectItem value="Sellinium">Sellinium</SelectItem>
+                    <SelectItem value="Unstructured">Unstructured </SelectItem>
+                    <SelectItem value="Beautiful soup">Beautiful soup</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
           </form>
-          <div className="mt-2 h-32 overflow-y-auto">
-            <Label>Added Tests</Label>
+          <div className="mt-2"><Label>Added Urls</Label></div>
+          <div className="mt-1 h-32 overflow-y-auto">
+           
             {tests.length === 0 ? (
-              <p className="text-gray-500">No tests added yet.</p>
+              <p className="text-gray-500">No url added yet.</p>
             ) : (
               <ul className="list-disc pl-4">
                 {tests.map((test, index) => (
@@ -115,7 +115,7 @@ import router from "next/router";
           <Button variant="outline" onClick={clearAllTests}>
             Clear All
           </Button>
-          <Button onClick={()=>{console.log(tests)}}>webScrap</Button>
+          <Button onClick={()=>{console.log(tests)}}>Create Chatbot</Button>
         </CardFooter>
       </Card>
     </div>
@@ -125,22 +125,14 @@ import router from "next/router";
 function page() {
   return (
     <main className="p-4 lg:p-8">
-      <h1 className="text-2xl font-bold">Dashboard</h1>
+      <h1 className="text-2xl font-bold">Url Dashboard</h1>
       <p className="text-gray-500 dark:text-gray-400">
-        Welcome to your dashboard. Here you can manage your products, customers,
-        and analytics.
+        Welcome to your dashboard. Here you can manage your urls here.
       </p>
       <div className="mt-8">
         <CardWithForm />
       </div>
-      <div className="fixed bottom-4 right-4">
-        <button
-          onClick={() => router.push("/llm")}
-          className="px-6 py-3 bg-black text-white rounded-lg shadow"
-        >
-          Next
-        </button>
-      </div>
+      
     </main>
   );
 }
