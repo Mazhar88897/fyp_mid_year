@@ -50,7 +50,7 @@ export default function SignUpCard() {
     <div className="flex h-screen items-center justify-center">
       <Card className="w-[350px] shadow-xl">
         <CardHeader>
-          <CardTitle>Sign Up</CardTitle>
+          <CardTitle>Sign Up to Mak Internationals</CardTitle>
           <CardDescription>Create an account to get started!</CardDescription>
         </CardHeader>
         <CardContent>
@@ -108,13 +108,14 @@ export default function SignUpCard() {
               {error && <p className="text-red-500 text-sm">{error}</p>}
             </div>
 
-            <div className="mt-4 flex justify-end">
-              <Button type="submit">Sign Up</Button>
-            </div>
+           
           </form>
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline">Cancel</Button>
+          <div className=" flex justify-end">
+              <Button  type="submit"><a  href="/llm/sign-up" >Sign Up</a></Button>
+            </div>
         </CardFooter>
       </Card>
     </div>

@@ -17,7 +17,7 @@ export default function SignInCard() {
     <div className="flex h-screen items-center bg-gradient-to-r from-black to-white justify-center">
       <Card className="w-[350px]">
         <CardHeader>
-          <CardTitle>Sign In</CardTitle>
+          <CardTitle>Sign In to Mak Internationals</CardTitle>
           <CardDescription>Access your account by signing in below.</CardDescription>
         </CardHeader>
         <CardContent>
@@ -40,7 +40,7 @@ export default function SignInCard() {
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline">Cancel</Button>
-          <Button>Sign In</Button>
+          <Button><a href="/test" >Sign In</a></Button>
         </CardFooter>
       </Card>
     </div>
